@@ -220,18 +220,15 @@ Benefits:
 
 --------------------------------------------------
 
-## 🧠 Just for Knowledge
+## Just for knowledge
 
-GitHub → Source code management  
-Docker Hub → Container image registry  
-
---------------------------------------------------
-
-## ⚠️ Drawbacks of Docker
-
-- Requires root privileges  
-- Single point of failure (daemon)  
-- Less isolation than VMs  
+  1. **What is the difference between Github and Docker hub?**
+     - **GitHub** manages and versions source code
+     - **Docker Hub** stores and distributes version-tagged container images.
+  2. **Therr are few drawbacks of docker**
+     - Docker daemon requires elevated (root-level) privileges, which can introduce security risks
+     - Docker uses a monolithic daemon process, so if the daemon goes down all running containers are affected (single    point of failure)
+     - Containers share the host OS kernel, so isolation is weaker compared to virtual machines
 
 --------------------------------------------------
 
