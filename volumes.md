@@ -58,3 +58,91 @@ they can be managed and backed up separately from the host file system, and can 
 In a nutshell, Bind Directory on a host as a Mount are appropriate for simple use cases where you need to mount a directory from the host file system into
 a container, while volumes are better suited for more complex use cases where you need more control over the data being persisted
 in the container.
+
+
+## Concept images
+
+![alt text](image.png)
+
+![alt text](image-1.png)
+
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+
+![alt text](image-4.png)
+
+
+
+
+
+
+## Points to be remembered
+- **We may notice these two types of commands docker -v <...> and docker --mount <......>:** Actually these two are same only the syntax is difference when we use -v it is straight forward src and dest parameters, But when we use --mount we can provide more details (verbose) example src, dest, permisions etc...
+
+- To acheive persistant data in docker conatiner we can use Volumes or bind mount options both will work but alway try to follow volume option because of its own advantages
+
+- **Advantages of creating volumes instead of bind mounts:**  Docker volumes are fully managed by Docker, stored in Docker’s internal storage, independent of host paths, portable across environments, safer, easier to back up, better performing (especially on Docker Desktop), and ideal for production use cases such as databases, whereas bind mounts map host directories directly into containers, are useful for local development with live code syncing, but are host‑dependent, less portable, and risky for production; Docker Compose simplifies volume management by defining named volumes declaratively, containers should always be stateless with all state externalized, named volumes are preferred over anonymous ones, bind mounts should generally be avoided in production, docker inspect can be used to verify mounts, and the key takeaway is that containers are disposable but data is not, so state should always live in Docker volumes or external storage systems.
+
+--------------------------------------------------
+
+###DOCKER VOLUME COMMANDS (WITH EXPLANATION)
+
+**docker volume create my_volume**
+Creates a new named Docker volume called my_volume.
+
+
+**docker volume ls**
+Lists all Docker volumes available on the system.
+
+
+**docker volume inspect my_volume**
+Displays detailed information about the volume including mount location.
+
+
+**docker volume rm my_volume**
+Removes a specific Docker volume that is not in use.
+
+
+**docker volume prune**
+Removes all unused Docker volumes to free disk space.
+
+--------------------------------------------------
+
+####USING VOLUMES WITH CONTAINERS
+
+**docker run -v my_volume:/app/data nginx**
+Mounts the volume to the container directory.
+
+
+**docker run --mount type=volume,src=my_volume,dst=/app/data nginx**
+Same as above but with explicit syntax.
+
+--------------------------------------------------
+
+####DOCKER BIND MOUNTS
+
+**docker run -v /host/path:/container/path nginx**
+Maps a host directory into the container.
+
+
+**docker run --mount type=bind,src=/host/path,dst=/container/path nginx**
+Bind mount using explicit syntax.
+
+--------------------------------------------------
+
+####DOCKER COMPOSE WITH VOLUMES
+
+version: "3.9"
+services:
+  db:
+    image: mysql
+    volumes:
+      - db_data:/var/lib/mysql
+volumes:
+  db_data:
+
+--------------------------------------------------
+
+####FINAL TAKEAWAY
+Containers are disposable, but data is not. Always use volumes for persistence.
