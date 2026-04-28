@@ -84,6 +84,8 @@ in the container.
 
 - **Advantages of creating volumes instead of bind mounts:**  Docker volumes are fully managed by Docker, stored in Docker’s internal storage, independent of host paths, portable across environments, safer, easier to back up, better performing (especially on Docker Desktop), and ideal for production use cases such as databases, whereas bind mounts map host directories directly into containers, are useful for local development with live code syncing, but are host‑dependent, less portable, and risky for production; Docker Compose simplifies volume management by defining named volumes declaratively, containers should always be stateless with all state externalized, named volumes are preferred over anonymous ones, bind mounts should generally be avoided in production, docker inspect can be used to verify mounts, and the key takeaway is that containers are disposable but data is not, so state should always live in Docker volumes or external storage systems.
 
+- If we got a task to delete the volume then we need to stop the container that is using the volume and then we need to remove the volume otherwise it will through the error and we will be unable to delete the volume.
+
 --------------------------------------------------
 
 ### DOCKER VOLUME COMMANDS (WITH EXPLANATION)
