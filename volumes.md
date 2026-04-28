@@ -88,45 +88,45 @@ in the container.
 
 ### DOCKER VOLUME COMMANDS (WITH EXPLANATION)
 
-**docker volume create my_volume**
+**docker volume create my_volume**  
 Creates a new named Docker volume called my_volume.
 
 
-**docker volume ls**
+**docker volume ls**  
 Lists all Docker volumes available on the system.
 
 
-**docker volume inspect my_volume**
+**docker volume inspect my_volume**  
 Displays detailed information about the volume including mount location.
 
 
-**docker volume rm my_volume**
+**docker volume rm my_volume**  
 Removes a specific Docker volume that is not in use.
 
 
-**docker volume prune**
+**docker volume prune**  
 Removes all unused Docker volumes to free disk space.
 
 --------------------------------------------------
 
 #### USING VOLUMES WITH CONTAINERS
 
-**docker run -v my_volume:/app/data nginx**
+**docker run -v my_volume:/app/data nginx**  
 Mounts the volume to the container directory.
 
 
-**docker run --mount type=volume,src=my_volume,dst=/app/data nginx**
+**docker run --mount type=volume,src=my_volume,dst=/app/data nginx**  
 Same as above but with explicit syntax.
 
 --------------------------------------------------
 
 #### DOCKER BIND MOUNTS
 
-**docker run -v /host/path:/container/path nginx**
+**docker run -v /host/path:/container/path nginx**  
 Maps a host directory into the container.
 
 
-**docker run --mount type=bind,src=/host/path,dst=/container/path nginx**
+**docker run --mount type=bind,src=/host/path,dst=/container/path nginx**  
 Bind mount using explicit syntax.
 
 --------------------------------------------------
@@ -137,5 +137,5 @@ Bind mount using explicit syntax.
 
 --------------------------------------------------
 
-#### FINAL TAKEAWAY
+#### FINAL TAKEAWAY  
 Containers are disposable, but data is not. Always use volumes for persistence.
