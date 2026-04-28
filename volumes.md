@@ -86,7 +86,7 @@ in the container.
 
 --------------------------------------------------
 
-###DOCKER VOLUME COMMANDS (WITH EXPLANATION)
+### DOCKER VOLUME COMMANDS (WITH EXPLANATION)
 
 **docker volume create my_volume**
 Creates a new named Docker volume called my_volume.
@@ -109,7 +109,7 @@ Removes all unused Docker volumes to free disk space.
 
 --------------------------------------------------
 
-####USING VOLUMES WITH CONTAINERS
+#### USING VOLUMES WITH CONTAINERS
 
 **docker run -v my_volume:/app/data nginx**
 Mounts the volume to the container directory.
@@ -120,7 +120,7 @@ Same as above but with explicit syntax.
 
 --------------------------------------------------
 
-####DOCKER BIND MOUNTS
+#### DOCKER BIND MOUNTS
 
 **docker run -v /host/path:/container/path nginx**
 Maps a host directory into the container.
@@ -131,18 +131,11 @@ Bind mount using explicit syntax.
 
 --------------------------------------------------
 
-####DOCKER COMPOSE WITH VOLUMES
+#### DOCKER COMPOSE WITH VOLUMES
 
-version: "3.9"
-services:
-  db:
-    image: mysql
-    volumes:
-      - db_data:/var/lib/mysql
-volumes:
-  db_data:
+![alt text](image-5.png)
 
 --------------------------------------------------
 
-####FINAL TAKEAWAY
+#### FINAL TAKEAWAY
 Containers are disposable, but data is not. Always use volumes for persistence.
