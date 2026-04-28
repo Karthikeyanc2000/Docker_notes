@@ -179,19 +179,19 @@ Container → Running instance of image
 
 ## 🚀 Build First Image
 
-docker build -t abhishekf5/my-first-docker-image:latest .
+docker build -t username/my-first-docker-image:latest .
 
 --------------------------------------------------
 
 ## ▶️ Run Container
 
-docker run -it abhishekf5/my-first-docker-image
+docker run -it username/my-first-docker-image
 
 --------------------------------------------------
 
 ## 📤 Push Image
 
-docker push abhishekf5/my-first-docker-image
+docker push username/my-first-docker-image
 
 --------------------------------------------------
 
