@@ -86,6 +86,8 @@ in the container.
 
 - If we got a task to delete the volume then we need to stop the container that is using the volume and then we need to remove the volume otherwise it will through the error and we will be unable to delete the volume.
 
+- Please refere this offcial doc for more details [Docker volumes](https://docs.docker.com/engine/storage/volumes/)
+
 --------------------------------------------------
 
 ### DOCKER VOLUME COMMANDS (WITH EXPLANATION)
